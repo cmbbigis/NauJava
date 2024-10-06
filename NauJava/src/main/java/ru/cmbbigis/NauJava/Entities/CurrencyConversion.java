@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import ru.cmbbigis.NauJava.IdGenerator;
 
 @Entity
 public class CurrencyConversion {
@@ -21,10 +22,15 @@ public class CurrencyConversion {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
         this.conversionRate = conversionRate;
+        this.id = IdGenerator.id++;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFromCurrency() {
