@@ -1,3 +1,5 @@
+package Hw2;
+
 import java.util.ArrayList;
 import java.util.OptionalDouble;
 
