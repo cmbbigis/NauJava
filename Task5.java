@@ -6,23 +6,17 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.HttpURLConnection;
 
-public class TaskInterfaceImplementation implements Task {
+public class Task5 implements Task {
     private final String fileURI;
     private final String fileName;
-    private final String saveDir;
     private final String filePath;
-    private Thread downloadThread;
+    private final Thread downloadThread;
     private boolean isStopped = false;
 
-    public TaskInterfaceImplementation(String fileURI, String fileName, String saveDir) {
+    public Task5(String fileURI, String fileName, String saveDir) {
         this.fileURI = fileURI;
         this.fileName = fileName;
-        this.saveDir = saveDir;
         filePath = saveDir + "/" + fileName;
-    }
-
-    @Override
-    public void start() {
         downloadThread = new Thread(() -> {
             try {
                 downloadFile();
@@ -30,6 +24,10 @@ public class TaskInterfaceImplementation implements Task {
                 e.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void start() {
         downloadThread.start();
     }
 
@@ -71,7 +69,7 @@ public class TaskInterfaceImplementation implements Task {
     }
 
     public static void main(String[] args) {
-        var task = new TaskInterfaceImplementation(
+        var task = new Task5(
                 "https://drive.google.com/file/d/1_8Sd2mYQmLwVXjdW6WHRXBoZJE-xzR6a/view?usp=sharing",
                 "file.zip",
                 "F:\\Downloads");

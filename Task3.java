@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.OptionalDouble;
 
-public class StreamApi {
+public class Task3 {
     public static void main(String[] args) {
         var employees = new ArrayList<Employee>();
         employees.add(new Employee("Иван Иванов", 35, "IT", 120000.0));
