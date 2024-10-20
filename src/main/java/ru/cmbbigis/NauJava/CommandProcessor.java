@@ -14,7 +14,7 @@ public class CommandProcessor {
         this.service = service;
     }
 
-    public void processCommand(String input) {
+    public void processCommand(String input) throws Exception {
         var cmd = input.split(" ");
         switch (cmd[0]) {
             case "create" -> {

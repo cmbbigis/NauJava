@@ -22,7 +22,7 @@ public class CurrencyConversion {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
         this.conversionRate = conversionRate;
-        this.id = IdGenerator.id++;
+        this.id = IdGenerator.getNextId();
     }
 
     public Long getId() {

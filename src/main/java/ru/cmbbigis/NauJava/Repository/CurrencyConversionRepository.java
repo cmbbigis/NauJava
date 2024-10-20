@@ -31,8 +31,12 @@ public class CurrencyConversionRepository implements CrudRepository<CurrencyConv
     }
 
     @Override
-    public void update(CurrencyConversion currencyConversion) {
-        var index = currencyConversionContainer.indexOf(read(currencyConversion.getId()));
+    public void update(CurrencyConversion currencyConversion) throws Exception {
+        var currencyConversionFromDb = read(currencyConversion.getId());
+        if (currencyConversionFromDb == null) {
+            throw new Exception("currencyConversion was not find in database");
+        }
+        var index = currencyConversionContainer.indexOf(currencyConversionFromDb);
         if (index >= 0) {
             currencyConversionContainer.set(index, currencyConversion);
         }

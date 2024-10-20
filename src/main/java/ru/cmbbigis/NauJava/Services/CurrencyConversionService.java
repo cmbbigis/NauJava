@@ -30,7 +30,7 @@ public class CurrencyConversionService implements ICurrencyConversionService {
     }
 
     @Override
-    public void updateConversion(Long id, String fromCurrency, String toCurrency, double conversionRate) {
+    public void updateConversion(Long id, String fromCurrency, String toCurrency, double conversionRate) throws Exception {
         var conversion = new CurrencyConversion(fromCurrency, toCurrency, conversionRate);
         conversion.setId(id);
         repository.update(conversion);
